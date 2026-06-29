@@ -1,22 +1,25 @@
 class Solution:
-    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        from collections import deque ,defaultdict
+    def numIslands(self, grid: List[List[str]]) -> int:
+        
+        if not grid:
+            return 0
+        
+        def dfs(r ,c):
+            if r>=len(grid) or r <0 or c >= len(grid[0]) or c <0 or grid[r][c] != "1":
+                return
+            grid[r][c] ="0"
+            dfs(r+1 ,c)
+            dfs(r-1 ,c)
+            dfs(r ,c+1)
+            dfs(r ,c-1)
 
-        storage = defaultdict(list)
-        indegree=[0]*numCourses
+        island_c =0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == "1":
+                    island_c +=1
+                    dfs(i ,j)
+        return island_c
 
-        for courses ,pre in prerequisites :
-            storage[pre].append(courses)
-            indegree[courses]+=1
 
-        queue =deque([i for i in range(numCourses) if indegree[i] == 0])
-        visited_course =0
-        while queue:
-            course =queue.popleft()
-            visited_course +=1
-            for i in storage[course]:
-                indegree[i] -=1
-                if indegree[i] ==0:
-                    queue.append(i)
 
-        return visited_course == numCourses
