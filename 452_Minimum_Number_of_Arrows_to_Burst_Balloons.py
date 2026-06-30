@@ -1,31 +1,15 @@
-class Solution(object):
-    def shipWithinDays(self, weights, days):
-    
-        if not weights:
+class Solution:
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        if not points:
             return 0
-        def canShip(capacity):
-            wt =0
-            day =1
-            for w in weights:
+        points.sort(key =lambda x : x[1])
 
-                if w >capacity :
-                    return False
-                if wt+w > capacity:
-                    day +=1
-                    wt =w
-                else:
-                    wt +=w
-            return day <= days
+        end =points[0][1]
+        arrow =1
+        for start ,finish in points[1 :]:
+            if start > end:
+                arrow+=1
+                end =finish
 
+        return arrow
 
-        low =max(weights)
-        high =sum(weights)
-        while low <high:
-            mid = low +(high -low)//2
-            if canShip(mid):
-                high =mid 
-            else:
-                low = mid + 1
-        return low
-
-        
