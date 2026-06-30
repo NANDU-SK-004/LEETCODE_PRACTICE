@@ -1,22 +1,26 @@
-class Solution(object):
-    
-    def rec(self ,index,nums , result ,ans):
-        if index == len(nums):
-            ans.append(result[:])
-            return
-
-        result.append(nums[index])
-        self.rec(index + 1,nums , result ,ans)
-
-        result.pop()
-
-        self .rec(index + 1,nums , result ,ans)
-
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
         
-    def subsets(self, nums):
-        ans =[]
-        self.rec(0 ,nums ,[] ,ans)
-        return ans
-    
+        result =[]
+        used =[False]*len(nums)
 
-        
+        def backtrack(curr_path):
+            if len(curr_path) == len(nums):
+                result.append(curr_path.copy())
+                return
+            
+            for i in range(len(nums)):
+                if used[i] :
+                    continue
+
+                used[i] =True
+                curr_path.append(nums[i])
+
+                backtrack(curr_path)
+
+                used[i] =False
+                curr_path.pop()
+
+        backtrack([])
+
+        return result
