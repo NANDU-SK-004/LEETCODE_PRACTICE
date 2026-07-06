@@ -7,7 +7,7 @@ class Solution:
         rows = [""] * numRows
 
         current_row = 0
-        direction = 1      # 1 = down, -1 = up
+        direction = 1      
 
         for ch in s:
 
