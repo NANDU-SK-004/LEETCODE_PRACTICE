@@ -12,7 +12,7 @@ class Solution:
 
         for val in arr:
             for i in range(0 ,len(nums)-k):
-                if nums[i:i+k+2].count(val) > 1:
+                if nums[i:i+k+1].count(val) > 1:
                     return True
         return False
 
