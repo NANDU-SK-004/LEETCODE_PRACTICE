@@ -11,10 +11,14 @@ class Solution:
                 arr.append(key) 
 
         for val in arr:
-            for i in range(len(nums)-k +1):
-                
-                if nums[i:i+k+1].count(val) > 1:
+            if k >= len(nums):
+                if nums.count(val) > 1:
                     return True
+            else:
+                for i in range(len(nums)-k +1):
+                    
+                    if nums[i:i+k+1].count(val) > 1:
+                        return True
         return False
 
 
