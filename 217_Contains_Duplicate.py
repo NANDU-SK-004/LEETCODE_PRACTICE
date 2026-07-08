@@ -7,4 +7,4 @@ class Solution:
         for k in hash.values():
             if k >1:
                 return True
-            return False
+        return False
