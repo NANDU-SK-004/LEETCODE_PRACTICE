@@ -3,5 +3,5 @@ class Solution:
         hash ={}
 
         for num in nums:
-            hash[num] = hash.get(num ,1)+1
+            hash[num] = hash.get(num ,0)+1
         print(hash)
