@@ -4,4 +4,7 @@ class Solution:
 
         for num in nums:
             hash[num] = hash.get(num ,0)+1
-        print(hash)
+        for k in hash.values():
+            if k >1:
+                return True
+            return False
