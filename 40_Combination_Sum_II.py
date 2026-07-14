@@ -6,6 +6,7 @@ class Solution:
 
         def solve(index ,subset ,target):
             if target == 0:
+                final.append(subset.copy())
                 return
             if index == len(candidates) or target <0:
                 return
