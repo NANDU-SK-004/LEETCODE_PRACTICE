@@ -4,21 +4,19 @@ class Solution:
         sub = []
         candidates.sort()
         def solve(index ,sub ,target):
-            i
+            
             if target == 0:
                 final.append(sub.copy())
                 return
-            
-            
             for i in range(index ,len(candidates)):
                 if candidates[i] > target :
                     break
                 sub.append(candidates[i])  
                 solve(i ,sub  ,target - candidates[i])   
-            sub.pop()
-        return final
-        solve(0 ,sub ,target) 
+                sub.pop()
         
+        solve(0 ,sub ,target) 
+        return final
         
         
         
