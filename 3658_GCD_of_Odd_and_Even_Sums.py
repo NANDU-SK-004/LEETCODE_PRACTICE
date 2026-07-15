@@ -1,0 +1,4 @@
+import math
+class Solution:
+    def gcdOfOddEvenSums(self, n: int) -> int:
+        return int(math.gcd(n**2 ,n*(n+1)))
