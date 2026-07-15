@@ -1,18 +1,21 @@
 class Solution:
-    def isPalindrome(self, s: str) -> bool:
+    def validPalindrome(self, s: str) -> bool:
         left =0
         right =len(s) -1
-        s =s.lower()
-        while left < right:
-            if not s[left].isalnum():
-                left +=1
-                continue
-            if not s[right].isalnum():
-                right-=1
-                continue
-            if s[right] != s[left]:
+        flag =False
+        while left < right :
+            if s[left] != s[right] :
+                if flag == False:
+                    flag =True
+                    if s[left +1]== s[right]:
+                        left =left +1
+                    elif s[left] ==s[right-1]:
+                        right =right -1
+                    continue
                 return False
-            right -=1
             left +=1
-        return True 
-           
+            right -=1
+        return True
+            
+
+
