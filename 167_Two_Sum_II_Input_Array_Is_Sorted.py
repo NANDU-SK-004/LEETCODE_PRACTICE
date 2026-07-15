@@ -4,7 +4,7 @@ class Solution:
         right = len(numbers) -1
         l =[]
         while left < right:
-            if numbers[right] > target :
+            if numbers[right] > target and numbers[right]+numbers[left]!= target:
                 right -=1
             if (numbers[left] + numbers[right]) == target:
                 l.append(left + 1)
