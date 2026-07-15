@@ -1,16 +1,18 @@
 class Solution:
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        left = 0
-        right = len(numbers) -1
-        l =[]
+    def isPalindrome(self, s: str) -> bool:
+        left =0
+        right =len(s) -1
+        s =s.lower()
         while left < right:
-            # if numbers[right] > target and numbers[right]+numbers[left]!= target:
-            #     right -=1
-            if (numbers[left] + numbers[right]) == target:
-                l.append(left + 1)
-                l.append(right + 1)
-                return l
-            elif (numbers[left] + numbers[right]) < target:
+            if not s[left].isalnum():
                 left +=1
-            else:
-                right -=1
+                continue
+            if not s[right].isalnum():
+                right-=1
+                continue
+            if s[right] != s[left]:
+                return False
+            right -=1
+            left +=1
+        return True 
+           
