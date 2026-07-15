@@ -7,8 +7,8 @@ class Solution:
             if numbers[right] > target :
                 right -=1
             if (numbers[left] + numbers[right]) == target:
-                l.append(left)
-                l.append(right)
+                l.append(numbers[left])
+                l.append(numbers[right])
                 return l
             elif (numbers[left] + numbers[right]) < target:
                 left +=1
