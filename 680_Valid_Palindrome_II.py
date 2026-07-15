@@ -5,16 +5,11 @@ class Solution:
         flag =False
         while left < right :
             if s[left] != s[right] :
-                if flag == False:
-                    flag =True
-                    if s[left +1]== s[right]:
-                        left =left +1
-                    elif s[left] ==s[right-1]:
-                        right =right -1
-                    continue
-                return False
+               
+                return s[left:right]== s[right-1 : left -1 :-1] or s[left+1:right]== s[right-1 : left -1 :-1]
             left +=1
             right -=1
+
         return True
             
 
