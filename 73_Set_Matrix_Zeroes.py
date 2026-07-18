@@ -1,17 +1,21 @@
 class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
-        s = set(nums)
-        longest = 0
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        row = set()
+        col = set()
+        for i in range(0 ,len(matrix)):       #rows
+            for j in range(0 ,len(matrix[0])):   #columns
+                if matrix[i][j] == 0:
+                     row.add(i)
+                     col.add(j)
 
-        for num in s:
-            if num - 1 not in s:          # Start of a sequence
-                current = num
-                length = 1
+        for i in row :
+            for j in range (0 ,len(matrix[0])):
+                matrix[i][j] =0
 
-                while current + 1 in s:
-                    current += 1
-                    length += 1
-
-                longest = max(longest, length)
-
-        return longest
+        for j in col:
+            for i in range(0 ,len(matrix)):
+                matrix[i][j] =0
+        
