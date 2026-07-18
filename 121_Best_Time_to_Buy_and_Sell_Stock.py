@@ -1,11 +1,8 @@
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        i =0
-        sum =0
-        tsum =float("-inf")
-        for i in range (0 ,len(nums)):
-            sum =sum +nums[i]
-            tsum =max(tsum ,sum)
-            if sum <0:
-                sum =0
-        return tsum
+    def maxProfit(self, prices: List[int]) -> int:
+        least = float("+inf")
+        max_doff =float("-inf")
+        for i in range(0 ,len(prices)):
+            least = min(least ,prices[i])
+            max_doff =max(max_doff ,prices[i] - least)
+        return max_doff
