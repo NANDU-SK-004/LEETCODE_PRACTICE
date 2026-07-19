@@ -1,6 +1,6 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
-        nums =[-2 ,-2 ,-2,-1 -1 ,-1 ,-1,0 ,0,1 ,2  ,-4]
+        
         ans =[]
         n =len(nums)
         nums.sort()
