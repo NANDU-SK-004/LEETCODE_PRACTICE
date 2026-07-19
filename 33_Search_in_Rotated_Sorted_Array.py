@@ -3,10 +3,10 @@ class Solution:
         n =len(nums)
         low =0
         high =n - 1
-        target =8
+        
         while low <= high:
             mid = (low+high)//2
-            if nums[mid] ==target:
+            if nums[mid] == target:
                 return mid
             if nums[mid] <= nums[high]:
                 if nums[mid] <= target <=nums[high]:
