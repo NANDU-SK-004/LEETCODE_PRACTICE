@@ -1,5 +1,10 @@
-class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        n =len(nums)
-        k =(n*(n+1)//2)
-        return  k - sum(nums) 
+class Solution(object):
+    #TGTkl
+    def twoSum(self, nums, target):
+        result =[]
+        for i in range(len(nums)):
+            if (target -nums[i]) in nums and nums.index((target -nums[i])) != i:
+                result.append(i)
+                result.append(nums.index((target -nums[i])))
+                return result
+            
