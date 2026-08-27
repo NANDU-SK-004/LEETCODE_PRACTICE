@@ -1,16 +1,24 @@
-class Solution:
-    def isSubsequence(self, s: str, t: str) -> bool:
-        if len(s) > len(t):
-            return False
-        first =0
-        second =0
-        while second  != len(t) and first !=len(s):
-            if s[first] == t[second]:
-                first +=1
-                second +=1
-            else :
-                second +=1
-        if first == len(s):
-            return True
-        return False
+# class Solution:
+#     def removeElement(self, nums: List[int], val: int) -> int:
+#         if val in nums:
+#             k =nums.count(val)
+#             for i in range(len(nums)):
+#                 nums.remove(val)
+#             for i in range(k):
+#                 nums.append("_")
+#             return nums
+#         return None
 
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        left = 0
+        right = len(nums) - 1
+
+        while left <= right:
+            if nums[left] == val:
+                nums[left] = nums[right]
+                right -= 1
+            else:
+                left += 1
+
+        return left
