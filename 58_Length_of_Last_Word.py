@@ -1,8 +1,8 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         count =0
-        for i in range(len(s)-1 ,-1):
-            if s[i] == " ":
+        for i in range(len(s)-1 ,-1 ,-1):
+            if s[i] == " " and count == 0:
                 continue
             if s[i] != " ":
                 count =count+1
